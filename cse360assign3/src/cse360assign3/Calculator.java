@@ -3,7 +3,7 @@ package cse360assign3;
 
 /**
  * Class to calculate simple number operations including addition, subtraction, multiplication
- * and division of numbers.
+ * and division of integers.
  * 
  * @author Josephine Lamp, Pin 502 for CSE 360 Spring 2016
  *
@@ -11,9 +11,11 @@ package cse360assign3;
 
 public class Calculator 
 {
-
 	/** Private integer total variable to hold the total value */
 	private int total;
+	
+	/** Private string history variable to keep track of calculator history */
+	private String history = "0";
 	
 	/** Creates a calculator object, with default total of 0.*/
 	public Calculator () 
@@ -31,35 +33,41 @@ public class Calculator
 	}
 	
 	/**
-	 * add - add parameter to the total value
-	 * @param value number to be added
+	 * add - add parameter to the total value and updates history
+	 * @param value integer to be added
 	 */
 	public void add (int value) 
 	{
 		total += value;
+		String addString = " + " + value;
+		history += addString;
 	}
 	
 	/**
-	 * subtract - subtract the parameter from the total value
-	 * @param value number to be subtracted
+	 * subtract - subtract the parameter from the total value and updates history
+	 * @param value integer to be subtracted
 	 */
 	public void subtract (int value) 
 	{
 		total -= value;
+		String subtractString = " - " + value;
+		history += subtractString;
 	}
 	
 	/**
-	 * multiply - multiply the parameter to the total value
-	 * @param value number to be multiplied
+	 * multiply - multiply the parameter to the total value and updates history
+	 * @param value integer to be multiplied
 	 */
 	public void multiply (int value) 
 	{
 		total *= value;
+		String multiplyString = " * " + value;
+		history += multiplyString;
 	}
 	
 	/**
-	 * divide - divide the total by the parameter
-	 * @param value value to divide the total by
+	 * divide - divide the total by the parameter and updates history
+	 * @param value integer to divide the total by
 	 */
 	public void divide (int value) 
 	{
@@ -71,6 +79,9 @@ public class Calculator
 		{
 			total /= value;
 		}
+		
+		String divideString = " / " + value;
+		history += divideString;
 	}
 	
 	/**
@@ -79,6 +90,6 @@ public class Calculator
 	 */
 	public String getHistory () 
 	{
-		return "";
+		return history;
 	}
 }
